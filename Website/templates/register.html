@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '../static/css/register.css' %}">
+    <title>Register</title>
+
+    <style>
+        .success {
+            color: green;
+        }
+
+        .info {
+            color: blue;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="registerForm">
+        <h2>REGISTER HERE</h2>
+        <form method="POST" action="{% url 'register' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+              
+            First Name: <input type="text" name="fname" placeholder="FIRST NAME" />
+            Last Name: <input type="text" name="lname" placeholder="LAST NAME" /> <br>
+
+            Email: <input type="email" name="emailid" placeholder="EMAIL ID" /> <br>
+
+            Phone No: <input type="text" name="phone" placeholder="STUDENT NUMBER" />
+            <!-- <input type="text" name="phone" placeholder="PARENT NUMBER" /> <br> -->
+
+            Username: <input type="text" name="username" placeholder="USERNAME" /> <br>
+
+            Password: <input type="password" name="password1" placeholder="PASSWORD" />
+            Confirm Password: <input type="password" name="password2" placeholder="CONFIRM PASSWORD" /> <br>
+
+            Gender: <input type="radio" checked name="gender" value="M" /> Male
+            <input type="radio" name="gender" value="F" /> Female
+            <input type="radio" name="gender" value="O" /> Other <br>
+
+            Address: <textarea cols="10" rows="10" name="address"></textarea>
+
+            College: <input type="text" name="college" placeholder="COLLEGE NAME" />
+            Branch: <input type="text" name="branch" placeholder="BRANCH" /> <br>
+
+            Subject: <input type="text" name="subject" spellcheck="true" placeholder="SUBJECT" />
+
+            Batch:
+            <select name="batch">
+                <option selected value="M">Morning</option>
+                <option value="A">Afternoon</option>
+                <option value="E">Evening</option>
+            </select> <br>
+
+            Fees: <br>
+            Payment Type:
+            <select name="paymentType">
+                <option>Full Payment</option>
+                <option>Installment</option>
+            </select>
+
+            <input type="text" name="fees" /> <br>
+
+            Terms and Conditions: <br>
+            <input type="radio" name="terms" /> I understand that fees once paid will not be refunded or transferred under any circumstances. <br>
+
+            <!-- <button type="submit"><a href="/payment">Proceed to Payment</a></button> -->
+            <button type="submit">Proceed to Payment</button>
+
+            <p>Already have an account?<a href="{% url 'login' %}">Click here</a></p>
+
+        </form>
+    </div>
+    
+    {% if messages %}
+    {% for message in messages %}
+    <span {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</span>
+    {% endfor %}
+    {% endif %}
+
+</body>
+
+</html>

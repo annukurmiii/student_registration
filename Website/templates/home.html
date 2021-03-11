@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static '../static/css/home.css' %}">
+    
+</head>
+<body>
+    {% block content %}
+    <header>
+        <div class="home">
+            <div class="home__logo">
+                <img src="{% static '../static/logo2.png' %}" alt="logo"/>
+            </div>
+            <ul>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="/admin">Admin</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="/aboutus">About us</a></li>
+                <li><a href="/contactus">Contact us</a></li>
+            </ul>
+        </div>
+
+        <div class="home__title">
+            <h1>WEBDEV CREATIONS</h1>
+        </div>
+
+        <div class="home__button">
+            <a href="/login" class="home__buttonBtn">SIGN IN</a>
+            <a href="#" class="home__buttonBtn">TAKE A DEMO</a>
+        </div>
+    </header>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static '../static/css/contactus.css' %}">
+    <script src="https://kit.fontawesome.com/02831f1ef8.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="#">
+</head>
+
+<body>
+    <div class="contactus">
+        <h1>CONNECT WITH US</h1>
+        <p>We would love to respond to your queries and help you succeed. Feel free to get in touch with us.</p>
+    </div>
+
+    <div class="contactus__contactBox">
+        <div class="contactus__contactBoxLeft">
+            <h3>SEND UR REQUEST</h3>
+
+            <form method="POST" action="{% url 'contactus' %}">
+                {% csrf_token %}
+
+                <div class="contactus__contactBoxLeftInputRow">
+                    <div class="contactus__contactBoxLeftInputGroup">
+
+                        <label for="name">Name: </label>
+                        <input type="text" name="name" placeholder="Enter your Name"><br><br>
+
+                        <label for="phoneNo">Phone No: </label>
+                        <input type="text" name="phoneNo" placeholder="Enter your Phone Number"><br><br>
+
+                        <label for="email">Email Id: </label>
+                        <input type="email" name="email" placeholder="Enter your Email Id"><br><br>
+
+                        <label for="message">Message: </label>
+                        <textarea name="message" cols="80" rows="10" placeholder="Write your Message here.."></textarea>
+
+                        <button type="submit">SUBMIT</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="contactus__contactBoxRight">
+            <h3>REACH US</h3>
+            <table>
+                <tr>
+                    <td>Email</td>
+                    <td>contactus@example.com</td>
+                </tr>
+
+                <tr>
+                    <td>Phone</td>
+                    <td>+91 1234567890</td>
+                </tr>
+
+                <tr>
+                    <td>Address</td>
+                    <td>Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. Placeat ipsa quae ab, <br> sunt
+                        doloribus doloremque?</td>
+                </tr>
+            </table>
+
+
+            <br><br><br>
+            <div class="contactus__contactBoxRightWrapper">
+                <h3>FOLLOW US ON:</h3>
+                <br>
+                <div class="contactus__contactBoxRightButton">
+                    <div class="icon"><i class="fab fa-facebook-f"></i></div>
+                    <span>Facebook</span>
+                </div>
+
+                <div class="contactus__contactBoxRightButton">
+                    <div class="icon"><i class="fab fa-twitter"></i></div>
+                    <span>Twitter</span>
+                </div>
+
+                <div class="contactus__contactBoxRightButton">
+                    <div class="icon"><i class="fab fa-instagram"></i></div>
+                    <span>Instagram</span>
+                </div>
+
+                <div class="contactus__contactBoxRightButton">
+                    <div class="icon"><i class="fab fa-github"></i></div>
+                    <span>Github</span>
+                </div>
+
+                <div class="contactus__contactBoxRightButton">
+                    <div class="icon"><i class="fab fa-youtube"></i></div>
+                    <span>Youtube</span>
+                </div>
+            </div>
+
+
+            <div class="wrapper">
+                <h3>JOIN OUR NEWSLETTER</h3>
+                <p>Reccive updates instantly</p>
+                <div class="newsletter">
+                    <input type="text" class="input" placeholder="Enter your Email">
+                    <i class="fas fa-envelope"></i>
+                    <div class="btn">Subscribe</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
